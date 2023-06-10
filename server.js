@@ -15,8 +15,7 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    // Stored in milliseconds
-    maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
+    maxAge: 24 * 60 * 60 * 1000,
   },
   resave: false,
   saveUninitialized: true,
@@ -25,23 +24,27 @@ const sess = {
   }),
 };
 
-app.use(session(sess));
-
+// create variable to use helper functions
 const hbs = exphbs.create({ helpers });
 
+// sets up the use of handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// sets up the use of the session with cookies
+app.use(session(sess));
+
+// sets up the use of express js
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// sets up the use of the routes (controllers)
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
     console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
-    )
-  );
+      `\nServer running on port ${PORT}`
+    ));
 });

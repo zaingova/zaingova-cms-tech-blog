@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS stuff_db;
+DROP DATABASE IF EXISTS blogData_db;
 
-CREATE DATABASE stuff_db;
+CREATE DATABASE blogData_db;
