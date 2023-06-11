@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Blog Site</title>
+
+   {{!-- external CSS files --}}
+   <link href="../../public/css/jass.css" rel="stylesheet">
+   <link href="../../public/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   {{!-- Header -> page title, nav-bar --}}
+   <header>
+      <h1>Generic Blog Site</h1>
+      <nav>
+         <a href="/">Home</a>
+         <a href="/dashboard">Dashboard</a>
+         {{!-- if logged in, display logout button --}}
+         {{#if loggedIn}}
+         <button id="logout" class="btn">Logout</button>
+         {{else}}
+         {{!-- if logged out, display login button --}}
+         <a href="/login">Login</a>
+         {{/if}}
+      </nav>
+   </header>
+   {{!-- page body literal --}}
+   <main class="">
+      {{{ body }}}
+   </main>
+
+   {{!-- if logged in, load logout script --}}
+   {{#if loggedIn}}
+   <script src="../../public/js/logout.js"></script>
+   {{/if}}
+</body>
+
+</html>
