@@ -4,49 +4,51 @@ const sequelize = require('../config/connection');
 class Post extends Model { }
 
 Post.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    post_title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
-    },
-    post_contents: {
-      type: DataType.STRING,
-      allowNull: false,
-      validate: {
-        len: [25],
-      },
-    },
+   {
+      id: {
 
-    // post_id references primary_key of User
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user',
-        id: 'id',
+         // ID -> primary key
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         autoIncrement: true,
+         primaryKey: true,
       },
-    },
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'post',
-  }
+      date_created: {
+         type: DataTypes.DATE,
+         allowNull: false,
+      },
+      post_title: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         validate: {
+            len: [8],
+         },
+      },
+      post_contents: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         validate: {
+            len: [25],
+         },
+      },
+
+      // post_id references primary_key of User
+      user_id: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         references: {
+            model: 'user',
+            id: 'id',
+         },
+      },
+   },
+   {
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'post',
+   }
 )
 
 module.exports = Post;

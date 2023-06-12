@@ -2,10 +2,17 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model { }
+class User extends Model {
+   // used to check if user password is valid -> returns TRUE or FALSE
+   checkPassword = async (password) => {
+      return await bcrypt.compareSync(password, this.password);
+   }
+}
 
 User.init(
    {
+      
+      // ID -> primary key
       id: {
          type: DataTypes.INTEGER,
          allowNull: false,
@@ -36,8 +43,9 @@ User.init(
       password: {
          type: DataTypes.STRING,
          allowNull: false,
+         // password needs to be ALPHANUMERIC and must have a minimun length of 8
          validate: {
-            len: [1],
+            len: [8],
             isAlphanumeric: true,
          },
       },
