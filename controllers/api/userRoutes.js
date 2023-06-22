@@ -3,13 +3,15 @@ const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // route described in login.js in /public -> creates a user
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   console.log('here');
   try {
     const userData = await User.create(req.body, {
       username: req.body.username,
       password: req.body.password,
     });
+
+    console.log(userData);
 
     // saves user data to the session
     req.session.save(() => {
@@ -59,7 +61,8 @@ router.post("/login", async (req, res) => {
 });
 
 // route described logout.js in /public -> logs out existing user by destroying session
-router.post("/logout", withAuth, (req, res) => {
+router.post("/logout", (req, res) => {
+  console.log(req.session.logged_in);
   console.log(req.session.logged_in);
   // if user is logged in...
   if (req.session.logged_in) {
@@ -67,6 +70,7 @@ router.post("/logout", withAuth, (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+
   } else {
     // otherwise, an error must have occured
     res.status(404).end();

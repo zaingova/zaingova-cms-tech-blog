@@ -28,10 +28,19 @@ router.get("/posts/:id", async (req, res) => {
     });
     const post = postData.get({ plain: true });
 
+    post.comments.map((p) => {
+      if (p.user_id == req.session.user_id) {
+        p.isOwner = true;
+      } else {
+        p.isOwner = false;
+      }
+    })
+
     console.log(post);
 
     res.render("singlePost", { post, logged_in: req.session.logged_in });
   } catch (err) {
+    console.log(err);
     res.json(err);
   }
 });
@@ -40,14 +49,18 @@ router.get("/posts/:id", async (req, res) => {
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
-      include: [{ model: User }],
+      include: [
+        { model: User },
+        { model: Comment, include: { model: User } }
+      ],
       where: {
         user_id: req.session.user_id,
       }
     });
     const posts = postData.map((p) => p.get({ plain: true }));
+    console.log(req.session.user_id);
 
-    //console.log(posts);
+    console.log(posts);
 
     res.render("dashboard", { posts, logged_in: req.session.logged_in });
   } catch (err) {

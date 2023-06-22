@@ -1,5 +1,6 @@
 // logout event function
 const logout = async () => {
+  document.location.replace('/');
   // fetch request to users/logout POST request
   const response = await fetch('api/users/logout', {
     method: 'POST',
@@ -8,10 +9,11 @@ const logout = async () => {
 
   // if response is OK, redirect user to root directory
   if (response.ok) {
-    alert("Goodbye!");
     document.location.replace('/login');
+    alert("Goodbye!");
   } else {
     // if response fails, send alert
+    console.log(response);
     alert('Logout failed');
   }
 };

@@ -1,6 +1,6 @@
 body {
   background-color: #e9e9e9;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 nav {
@@ -13,6 +13,35 @@ main {
 
 a {
   color: black;
+}
+
+button#submit-comment {
+  justify-content: center;
+}
+
+a.nav-link:hover {
+  color: #fced1e !important;
+  transition: ease-in-out 0.2s;
+}
+
+a.nav-link {
+  margin-left: 2rem;
+  margin-right: 1.2rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+
+input,
+select,
+textarea,
+button {
+  border: 1px solid #e4e4e4 !important;
+  border-radius: 5px 5px;
 }
 
 .btn-white:hover {

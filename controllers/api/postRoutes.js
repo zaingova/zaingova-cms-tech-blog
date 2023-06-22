@@ -16,4 +16,19 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+router.delete('/delete', async (req, res) => {
+  console.log(req.body.value);
+  try {
+    const deletedPost = Post.destroy({
+      where: {
+        id: req.body.value,
+      }
+    })
+
+    res.location.replace('/dashboard');
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 module.exports = router;

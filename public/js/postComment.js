@@ -6,19 +6,22 @@ const postCommentHandler = async (event) => {
   console.log(comment);
   console.log(post_id);
 
-  const response = await fetch(`/api/comments/${post_id}`, {
-    method: "POST",
-    body: JSON.stringify({ comment, post_id }),
-    headers: { "Content-Type": "application/json" },
-  })
+  if (comment.length > 0) {
+    const response = await fetch(`/api/comments/${post_id}`, {
+      method: "POST",
+      body: JSON.stringify({ comment, post_id }),
+      headers: { "Content-Type": "application/json" },
+    })
 
-  console.log(response);
 
-  if (response.ok) {
-    document.location.reload();
-    //document.location.replace(`/posts/${post_id}`);
+    if (response.ok) {
+      location.reload();
+      //document.location.replace(`/posts/${post_id}`);
+    } else {
+      console.log('err!');
+    }
   } else {
-    console.log('err!');
+    alert("Comment cannot be empty!");
   }
 }
 

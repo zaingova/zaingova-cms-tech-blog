@@ -8,14 +8,14 @@
             <h1 class="py-2 px-3">Create an Account!</h1>
           </div>
 
-          <form class="signup-form">
+          <form id="signup-form">
             <div class="card-body">
               <div class="row align-items-center pt-4 ml-5">
                 <div class="col-md-2 ps-5">
                   <h6 class="mb-0 pl-3">Username</h6>
                 </div>
                 <div class="col-md-8 pe-5">
-                  <input type="text" class="form-control form-control-lg" />
+                  <input type="text" class="form-control form-control-lg" id="username-signup" />
                 </div>
               </div>
 
@@ -29,30 +29,32 @@
                 </div>
                 <div class="col-md-8 pe-5 mr-1">
 
-                  <input type="email" class="form-control form-control-lg" />
+                  <input type="text" class="form-control form-control-lg" id="password-signup" />
 
                 </div>
               </div>
 
               <hr class="mx-n3">
+
               <div class="row container">
                 <div class="px-3 py-4 col-6">
-                  <button type="submit" class="btn btn-info btn-lg w-100 ml-3">Sign up!</button>
+                  <button type="submit" id="b" class="btn btn-info btn-lg w-100 ml-3">Sign up!</button>
                 </div>
                 <div class="px-3 py-4 col-6 text-center">
                   <button href="signup" type="submit" style="font-style: oblique;"
                     class="btn text-info btn-white btn-lg w-100 ml-2" id="login-redirect"><a href="/login">Already have
                       an
-                      account?</a></button>
+                      account?</a>
+                  </button>
                 </div>
               </div>
+
+            </div>
           </form>
         </div>
       </div>
-
     </div>
-  </div>
   </div>
 </section>
 
-<script src="./js/login.js"></script>
+<script src="./js/signup.js"></script>
