@@ -1,0 +1,26 @@
+[
+  {
+    "date_created": "August 19, 1975 23:15:30",
+    "post_title": "My First Blog Post",
+    "post_contents": "This is my first blog post! Wow",
+    "user_id": "2"
+  },
+  {
+    "date_created": "August 19, 1975 23:15:30",
+    "post_title": "Blog Post 2",
+    "post_contents": "This is another sample blog post",
+    "user_id": "1"
+  },
+  {
+    "date_created": "August 19, 1975 23:15:30",
+    "post_title": "Blog Post",
+    "post_contents": "This is a sample blog post",
+    "user_id": "2"
+  },
+  {
+    "date_created": "August 19, 1975 23:15:30",
+    "post_title": "Blog Post",
+    "post_contents": "This is a sample blog post",
+    "user_id": "3"
+  }
+]

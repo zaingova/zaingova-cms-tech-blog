@@ -1,2 +1,59 @@
-<p>{{ post.post_content }}</p>
-<p>{{ post.comment.comment_text }}</p>
+<div class="container d-flex justify-content-center align-items-baseline"
+  style="height:100%; margin-top: 8rem; margin-bottom: 20rem">
+  {{!-- POST CARD --}}
+  <div class="p-0 card shadow-lg d-flex text-white col-lg-12 mx-auto"
+    style="border-radius: 20px 20px 20px 20px; height: auto">
+    {{!-- POST USERNAME DIV --}}
+    <div class="text-center card-header bg-primary pt-3 pb-auto" style="border-radius: 20px 20px 0 0;">
+      <h3>{{post.user.username}}</h3>
+    </div>
+
+    {{!-- POST BODY --}}
+    <div class="card-body text-dark pl-5">
+
+      {{!-- POST TITLE + CONTENTS --}}
+      <h3 style="text-decoration:underline" class="card-title mt-3 text-center">{{post.post_title}}</h3>
+      <p id="post_id" style="display:none">{{post.id}}</p>
+      <p class="card-text mb-4 mx-5">{{post.post_contents}}</p>
+
+      <hr>
+
+      {{!-- COMMENTS DIV --}}
+      {{#if post.comments}}
+      <h5 class="mb-3"><u>Comments</u></h5>
+      <hr>
+      <div style="font-size:0.9rem; color: #696969" class="comments">
+        {{#each post.comments as |comment|}}
+        <section class="d-flex justify-content-start font-italic">
+          <p>{{comment.user.username}}:</p>
+
+          <p class="text-light">..</p>
+          <p>{{comment.comment_text}}</p>
+        </section>
+        <p style="color: #b9b9b9">{{format_time comment.date_created}}</p>
+        <hr>
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{#if logged_in}}
+      <div class="post-comment">
+        <h5 class="mb-3"><u>Post a comment!</u></h5>
+        <form class="comment-submit">
+          <textarea id="comment-field" style="font-size: 0.9rem;" class="w-100 p-2"></textarea>
+          <button id="submit-comment" type="submit" class="btn text-light btn-primary btn w-100">Submit</button>
+        </form>
+      </div>
+      {{/if}}
+
+    </div>
+
+    {{!-- POST FOOTER - DATE_CREATED --}}
+    <div style="font-style: oblique; color: #919191; border-radius: 0 0 20px 20px;"
+      class="card-footer bg-light text-center">
+      {{format_time post.date_created}}
+    </div>
+  </div>
+</div>
+
+<script src="/js/postComment.js"></script>

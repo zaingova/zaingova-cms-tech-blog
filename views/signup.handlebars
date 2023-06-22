@@ -4,18 +4,18 @@
       <div class="col-xl-9">
 
         <div class="card shadow-lg mb-5" style="border-radius: 20px 20px 15px 15px; border: none">
-          <div class="card-header bg-primary text-white mb-4" style="border-radius: 20px 20px 0 0; border: none">
-            <h1 class="py-2 px-3">Welcome back!</h1>
+          <div class="card-header bg-info text-white mb-4" style="border-radius: 20px 20px 0 0; border: none">
+            <h1 class="py-2 px-3">Create an Account!</h1>
           </div>
 
-          <form class="login-form">
+          <form class="signup-form">
             <div class="card-body">
               <div class="row align-items-center pt-4 ml-5">
                 <div class="col-md-2 ps-5">
                   <h6 class="mb-0 pl-3">Username</h6>
                 </div>
                 <div class="col-md-8 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="username-login" />
+                  <input type="text" class="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8 pe-5 mr-1">
 
-                  <input type="text" class="form-control form-control-lg" id="password-login" />
+                  <input type="email" class="form-control form-control-lg" />
 
                 </div>
               </div>
@@ -37,22 +37,21 @@
               <hr class="mx-n3">
               <div class="row container">
                 <div class="px-3 py-4 col-6">
-                  <button type="submit" class="btn btn-primary btn-lg w-100 ml-3">Login</button>
+                  <button type="submit" class="btn btn-info btn-lg w-100 ml-3">Sign up!</button>
                 </div>
                 <div class="px-3 py-4 col-6 text-center">
-                  <button id="singup-redirect" type="submit" style="font-style: oblique;"
-                    class="btn text-primary btn-white btn-lg w-100 ml-2"><a href="/signup">Don't have an
+                  <button href="signup" type="submit" style="font-style: oblique;"
+                    class="btn text-info btn-white btn-lg w-100 ml-2" id="login-redirect"><a href="/login">Already have
+                      an
                       account?</a></button>
                 </div>
               </div>
-
-            </div>
           </form>
         </div>
-
-
       </div>
+
     </div>
+  </div>
   </div>
 </section>
 
