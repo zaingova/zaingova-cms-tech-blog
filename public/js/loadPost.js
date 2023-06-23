@@ -1,3 +1,4 @@
+
 const renderPostHandler = async () => {
   const id = document.querySelector('#post-id').value;
   document.location.replace(`/posts/${id}`);

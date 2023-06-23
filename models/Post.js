@@ -19,16 +19,10 @@ Post.init(
     post_title: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
     },
     post_contents: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: [25],
-      },
     },
 
     // post_id references primary_key of User

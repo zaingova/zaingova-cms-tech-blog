@@ -1,3 +1,4 @@
+
 // logout event function
 const logout = async () => {
   document.location.replace('/');

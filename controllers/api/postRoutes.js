@@ -16,6 +16,21 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+router.put('/update', async (req, res) => {
+  try {
+    const updatedPost = await Post.update(req.body, {
+      where: { id: req.body.value },
+    }
+    );
+
+    console.log(updatedPost);
+    res.location.replace('dashboard');
+  } catch (err) {
+    res.json(err);
+    console.log(err);
+  }
+})
+
 router.delete('/delete', async (req, res) => {
   console.log(req.body.value);
   try {
@@ -25,7 +40,7 @@ router.delete('/delete', async (req, res) => {
       }
     })
 
-    res.location.replace('/dashboard');
+    res.location.replace('dashboard');
   } catch (err) {
     res.json(err);
   }

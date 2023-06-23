@@ -8,5 +8,13 @@ module.exports = {
   // formats name into first_name + last_name
   formatName: (user) => {
     return user.first_name + user.last_name
-  }
+  },
+
+  popup: (modal) => {
+  var myDialog = document.createElement("dialog");
+  document.body.appendChild(myDialog)
+  var text = document.createTextNode(modal);
+  myDialog.appendChild(text);
+  myDialog.showModal();
+}
 }

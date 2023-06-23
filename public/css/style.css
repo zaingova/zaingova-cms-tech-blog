@@ -44,6 +44,21 @@ button {
   border-radius: 5px 5px;
 }
 
+.btn-circle {
+  background-color: #6ca5da !important;
+  width: 4rem;
+  height: 4rem;
+  padding: 0px 0px;
+  border-radius: 50px;
+  font-size: 8px;
+  text-align: center;
+}
+
+.btn-circle:hover {
+  background-color: #6090c7 !important;
+  transition: 0.2s ease-in-out;
+}
+
 .btn-white:hover {
   font-size: 1.27rem !important;
   transition: 0.5s ease-in-out !important;

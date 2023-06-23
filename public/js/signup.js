@@ -1,3 +1,4 @@
+
 // handles signing up
 console.log("here");
 const signupFormHandler = async (event) => {

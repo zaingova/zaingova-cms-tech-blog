@@ -5,9 +5,11 @@
 <hr>
 
 <div class="container justify-content-center text-center">
-  <button class="col-3 btn-lg bg-success text-white mb-2 px-3 py-1 mr-2 new"
-    style="height: 4rem; border-radius: 80px">Create New
-    Post</button>
+  <button class="btn-lg text-white mb-2 mr-2 new btn-circle">
+    <span class="material-symbols-outlined">
+      add
+    </span>
+  </button>
 </div>
 
 {{#each posts as |post|}}
@@ -26,7 +28,21 @@
       <button class="bg-danger text-white mb-2 px-3 py-1 mr-2 delete" type="submit" value="{{post.id}}"
         style="border-radius: 0;">Delete
         Post</button>
-      <button class="bg-secondary text-white mb-2 px-3 py-1 edit" value="{{post.id}}" style="border-radius: 0;">Edit Post</button>
+      <button class="bg-secondary text-white mb-2 px-3 py-1 edit" value="{{post.id}}" style="border-radius: 0;">Edit
+        Post</button>
+    </section>
+
+    <section style="display: none" id="{{post.id}}" class="edit-post">
+      <form class="comment-submit mt-3">
+        <textarea rows="1" placeholder="new post title:" id=""
+          style="font-size: 0.9rem; background-color: #f3f3f3; border: 1 px solid #ffffff"
+          class="w-100 p-2 mb-3 col-lg-12 new-post-title"></textarea>
+        <textarea rows="4" placeholder="new post body:" id=""
+          style="font-size: 0.9rem; background-color: #f3f3f3; border: 1 px solid #ffffff"
+          class="w-100 p-2 col-lg-12 new-post-content"></textarea>
+        <button type="submit" class="btn text-light btn-primary btn w-25 col-12 justify-content-center submit-comment"
+          value="{{post.id}}" style="margin: auto">Submit</button>
+      </form>
     </section>
 
   </div>

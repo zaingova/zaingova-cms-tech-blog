@@ -3,24 +3,24 @@
     "date_created": "August 19, 1975 23:15:30",
     "post_title": "My First Blog Post",
     "post_contents": "This is my first blog post! Wow",
-    "user_id": "2"
+    "user_id": "1"
   },
   {
     "date_created": "August 19, 1975 23:15:30",
     "post_title": "Lorem Ipsum Medium",
     "post_contents": "it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-    "user_id": "2"
+    "user_id": "1"
   },
   {
     "date_created": "August 19, 1975 23:15:30",
     "post_title": "Blog Post",
     "post_contents": "This is a sample blog post",
-    "user_id": "2"
+    "user_id": "1"
   },
   {
     "date_created": "August 19, 1975 23:15:30",
     "post_title": "Blog Post",
     "post_contents": "This is a sample blog post",
-    "user_id": "2"
+    "user_id": "1"
   }
 ]
