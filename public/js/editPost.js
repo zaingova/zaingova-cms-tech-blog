@@ -5,8 +5,8 @@ const submitEdit = document.getElementsByClassName('submit-comment');
 const submitPost = document.querySelector('.create-post');
 const showNewPost = document.querySelector('.show-new');
 
-let newTitle = document.getElementsByClassName('create-post-title');
-let newBody = document.getElementsByClassName('create-post-content');
+let newTitle = document.getElementsByClassName('new-post-title');
+let newBody = document.getElementsByClassName('new-post-content');
 let value = 0;
 
 const deletePostHandler = async (event) => {

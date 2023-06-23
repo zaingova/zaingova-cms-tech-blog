@@ -5,8 +5,8 @@
     style="border-radius: 20px 20px 20px 20px; height: auto">
     {{!-- POST USERNAME DIV --}}
     <div class="text-center card-header bg-dark pt-3 pb-auto" style="border-radius: 20px 20px 0 0;">
-      <h3>{{post.user.username}}</h3>
-      <h5>posted on: {{format_time post.date_created}}</h5>
+      <h2>{{post.user.username}}</h2>
+      <p>posted on: {{format_time post.date_created}}</p>
     </div>
 
     {{!-- POST BODY --}}
@@ -29,7 +29,7 @@
           <section class="d-flex justify-content-start ml-auto" style="font-size: 1rem; color: #000">
             <p class="font-weight-bold font-regular">{{comment.user.username}}:</p>
 
-            <p class="text-light">..</p>
+            <p style="color: #cccccc">..</p>
             <p>{{comment.comment_text}}</p>
             <p id="comment_id" style="display:none">{{comment.id}}</p>
           </section>
@@ -46,14 +46,14 @@
       {{/if}}
       {{#if logged_in}}
       <div class="post-comment" style="margin-left: 2.9rem; margin-right: 3.9rem">
-        <h5 class="mb-3"><u>Post a comment!</u></h5>
+        <h5 class="mb-3 text-white"><u>Post a comment!</u></h5>
         <form class="comment-submit">
           <textarea placeholder="comment-body" id="comment-field"
             style="font-size: 0.9rem; background-color: #f3f3f3; border: 1 px solid #ffffff"
             class="w-100 p-3 col-lg-12"></textarea>
           <button id="submit-comment" type="submit"
-            class="btn text-light btn-primary btn-lg w-25 col-12 justify-content-center"
-            style="margin: auto">Submit</button>
+            class="btn text-light btn-primary btn-lg w-25 col-12 mt-3 justify-content-center"
+            style="margin: auto; border: 1px solid #007bff71 !important">Submit</button>
         </form>
       </div>
       {{/if}}
