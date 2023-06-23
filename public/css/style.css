@@ -11,12 +11,17 @@ main {
   position: relative !important;
 }
 
-a {
-  color: black;
+button#signup-redirect {
+  color: rgb(0, 0, 0) !important;
+  font-weight: 900;
 }
 
 button#submit-comment {
   justify-content: center;
+}
+
+a#post-id {
+  color: white !important;
 }
 
 a.nav-link:hover {

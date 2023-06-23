@@ -1,10 +1,10 @@
 <div class="container d-flex justify-content-center align-items-baseline"
   style="height:100%; margin-top: 8rem; margin-bottom: 20rem">
   {{!-- POST CARD --}}
-  <div class="p-0 card shadow-lg d-flex text-white col-lg-12 mx-auto"
+  <div class="p-0 card shadow-lg d-flex text-white bg-secondary col-lg-12 mx-auto"
     style="border-radius: 20px 20px 20px 20px; height: auto">
     {{!-- POST USERNAME DIV --}}
-    <div class="text-center card-header bg-primary pt-3 pb-auto" style="border-radius: 20px 20px 0 0;">
+    <div class="text-center card-header bg-dark pt-3 pb-auto" style="border-radius: 20px 20px 0 0;">
       <h3>{{post.user.username}}</h3>
       <h5>posted on: {{format_time post.date_created}}</h5>
     </div>
@@ -13,19 +13,19 @@
     <div class="card-body text-dark pl-5">
 
       {{!-- POST TITLE + CONTENTS --}}
-      <h3 style="text-decoration:underline; font-size: 3rem" class="card-title mt-3 text-center mb-4 mr-5">
+      <h3 style="text-decoration:underline; font-size: 3rem" class="card-title mt-3 text-center text-white mb-4 mr-5">
         {{post.post_title}}</h3>
       <p id="post_id" style="display:none">{{post.id}}</p>
-      <p style="font-size: 1.2rem" class="card-text mb-4 mx-5">{{post.post_contents}}</p>
+      <p style="font-size: 1.2rem" class="card-text mb-4 mx-5 text-white">{{post.post_contents}}</p>
 
       <hr>
 
       {{!-- COMMENTS DIV --}}
       {{#if post.comments}}
-      <h5 style="font-size: 1.6rem; margin-left: 3rem" class="mb-3"><u>Comments</u></h5>
+      <h5 style="font-size: 1.6rem; margin-left: 3rem" class="mb-3 text-white"><u>Comments</u></h5>
       <div style="font-size:0.9rem; color: #696969; margin-left: 2.9rem; margin-right: 4rem;" class="comments">
         {{#each post.comments as |comment|}}
-        <div style="background-color: #f7f7f7; padding-top: 1.2rem; padding-bottom: 0.4rem" class="pl-3">
+        <div style="background-color: #cccccc; padding-top: 1.2rem; padding-bottom: 0.4rem" class="pl-3">
           <section class="d-flex justify-content-start ml-auto" style="font-size: 1rem; color: #000">
             <p class="font-weight-bold font-regular">{{comment.user.username}}:</p>
 
@@ -62,7 +62,7 @@
 
     {{!-- POST FOOTER - DATE_CREATED --}}
     <div style="font-style: oblique; color: #919191; border-radius: 0 0 20px 20px;"
-      class="card-footer bg-light text-center">
+      class="card-footer bg-dark text-center">
 
     </div>
   </div>

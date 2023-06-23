@@ -2,13 +2,11 @@
 const deletePost = document.getElementsByClassName('delete');
 const editPost = document.getElementsByClassName('edit');
 const submitEdit = document.getElementsByClassName('submit-comment');
-let newTitle = document.getElementsByClassName('new-post-title');
-let newBody = document.getElementsByClassName('new-post-content');
+const submitPost = document.querySelector('.create-post');
+const showNewPost = document.querySelector('.show-new');
 
-let textarea = document.querySelector('textarea');
-
-console.log(newTitle)
-
+let newTitle = document.getElementsByClassName('create-post-title');
+let newBody = document.getElementsByClassName('create-post-content');
 let value = 0;
 
 const deletePostHandler = async (event) => {
@@ -22,9 +20,10 @@ const deletePostHandler = async (event) => {
   });
 
   if (response.ok) {
-    Popup("Post deleted!");
+    alert("Post deleted!");
+    location.reload();
   } else {
-    Popup('Unable to delete!');
+    alert('Unable to delete!');
   }
 }
 
@@ -63,14 +62,45 @@ const updatePostHandler = async (event) => {
   })
 
   if (response.ok) {
-    Popup("Post updated!")
-
+    alert("Post updated!");
+    location.reload();
   } else {
-    Popup("Unable to update!")
+    alert("Unable to update!");
   }
 }
 
+const showNewPostFormHandler = async (event) => {
+  event.preventDefault();
 
+  if (window.getComputedStyle(document.getElementById('new-post-div')).display === "none")
+    document.getElementById('new-post-div').style.display = "block";
+  else
+    document.getElementById('new-post-div').style.display = "none";
+}
+
+const createPostHandler = async (event) => {
+  event.preventDefault();
+
+  const post_title = document.querySelector('.create-post-title').value.trim();
+  const post_contents = document.querySelector('.create-post-body').value.trim();
+  const date_created = Date.now();
+
+  console.log(post_title);
+  console.log(post_contents);
+
+  const response = await fetch("/api/posts", {
+    method: "POST",
+    body: JSON.stringify({ post_title, post_contents, date_created }),
+    headers: { "Content-Type": "application/json" },
+  })
+
+  if (response.ok) {
+    alert("Post created!");
+    location.reload();
+  } else {
+    alert("Unable to update!");
+  }
+}
 
 // adds as event listener to every 'delete post' button
 for (var i = 0; i < deletePost.length; i++) {
@@ -85,3 +115,6 @@ for (var i = 0; i < editPost.length; i++) {
 for (var i = 0; i < submitEdit.length; i++) {
   submitEdit[i].addEventListener('click', updatePostHandler);
 }
+
+submitPost.addEventListener('click', createPostHandler);
+showNewPost.addEventListener('click', showNewPostFormHandler);

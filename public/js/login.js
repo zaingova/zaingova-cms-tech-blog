@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
     // if login successful, redirect user to homepage
     if (response.ok) {
       document.location.replace("/");
-      alert(`Login successful! Welcome back, ${username}!`)
+      alert(`Login successful! Welcome back, ${username}!`);
     } else {
       alert("Login failed! Incorrect username or password!");
     }
