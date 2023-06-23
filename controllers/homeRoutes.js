@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// function used for finding posts by a specific primary key
 router.get("/posts/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
