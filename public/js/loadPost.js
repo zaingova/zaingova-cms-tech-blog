@@ -1,4 +1,4 @@
-
+// function used for loading a specific post
 const renderPostHandler = async () => {
   const id = document.querySelector('#post-id').value;
   document.location.replace(`/posts/${id}`);

@@ -9,6 +9,7 @@ class User extends Model {
   }
 }
 
+// model initialization
 User.init(
   {
     // ID -> primary key

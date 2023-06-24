@@ -8,6 +8,7 @@ const seedUser = require('./userData.json');
 const commentData = require('./commentData.json');
 
 // Store the data in userData.json and dishData.json in the User model
+// uses each json file in this folder to bulk create a few instances of each model
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
   await User.bulkCreate(seedUser, {

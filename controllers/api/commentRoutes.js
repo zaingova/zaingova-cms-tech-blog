@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// route for posting annew comment
 router.post("/:id", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
@@ -11,16 +12,14 @@ router.post("/:id", withAuth, async (req, res) => {
       user_id: req.session.user_id,
     })
 
+    res.status(200).json(commentData);
     res.redirect(`/posts/${post_id}`);
-
-    //res.r;
-    //res.render('singlePost', { logged_in: true });
   } catch (err) {
-    console.log(err);
-    res.json(err);
+    res.status(500).json(err);
   }
 })
 
+// route for deleting comments
 router.delete("/delete", withAuth, async (req, res) => {
   try {
     const deletedComment = await Comment.delete({
@@ -29,12 +28,11 @@ router.delete("/delete", withAuth, async (req, res) => {
       }
     });
 
-    console.log(deletedComment);
-
+    res.status(200).json(deletedComment);
   } catch (err) {
-    console.log(err);
-    res.json(err);
+    res.status(500).json(err);
   }
 })
 
+// exports router
 module.exports = router;

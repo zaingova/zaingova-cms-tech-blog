@@ -2,11 +2,16 @@ const router = require("express").Router();
 const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// route described in
+// route used for ceating posts
 router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create(
-      { date_created: req.body.date_created, post_title: req.body.post_title, post_contents: req.body.post_contents, user_id: req.session.user_id }, {});
+      {
+        date_created: req.body.date_created,
+        post_title: req.body.post_title,
+        post_contents: req.body.post_contents,
+        user_id: req.session.user_id
+      }, {});
 
     res.status(200).json(newPost);
   } catch (err) {
@@ -14,6 +19,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// route used for updating comments
 router.put('/update', async (req, res) => {
   try {
     const updatedPost = await Post.update(req.body, {
@@ -21,7 +27,7 @@ router.put('/update', async (req, res) => {
     }
     );
 
-    console.log(updatedPost);
+    res.status(200).json(updatedPost);
     res.location.replace('dashboard');
   } catch (err) {
     res.json(err);
@@ -29,6 +35,7 @@ router.put('/update', async (req, res) => {
   }
 })
 
+// route used for deleting posts
 router.delete('/delete', async (req, res) => {
   console.log(req.body.value);
   try {
@@ -38,10 +45,12 @@ router.delete('/delete', async (req, res) => {
       }
     })
 
+    res.status(200).json(deletedPost);
     res.location.replace('dashboard');
   } catch (err) {
     res.json(err);
   }
 });
 
+// exports router
 module.exports = router;

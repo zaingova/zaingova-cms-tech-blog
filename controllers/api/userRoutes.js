@@ -77,4 +77,5 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// exports router
 module.exports = router;

@@ -1,10 +1,12 @@
 <hr>
 
+{{!-- page title --}}
 <h1 style="font-size: 4rem; font-style: oblique; background: #f5e724" class="col-lg-7 mb-5 mt-5 container text-center">
   All Posts</h1>
 
 <hr>
 
+{{!-- loops through each post passed to handlebars from express and displays them as a card -> similar to the layout in 'dashboard.handlebars' --}}
 {{#each posts as |post|}}
 <div class="container p-0 card d-flex text-white bg-secondary mb-3 mt-2 col-lg-7"
   style="border-radius: 20px 20px 10px 10px; border: none">
@@ -24,4 +26,5 @@
 <hr>
 {{/each}}
 
+{{!-- uses the loadPost.js script --}}
 <script src="./js/loadPost.js"></script>

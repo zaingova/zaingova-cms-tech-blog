@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Post extends Model { }
 
+// model initialization
 Post.init(
   {
     id: {
@@ -25,7 +26,7 @@ Post.init(
       allowNull: false,
     },
 
-    // post_id references primary_key of User
+    // foreign key references
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

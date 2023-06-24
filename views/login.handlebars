@@ -1,3 +1,4 @@
+{{!-- login form -> displyed as a card --}}
 <section class="vh-100" style="background-color: #e7e7e7;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center" style="height: 85%;">
@@ -9,7 +10,9 @@
           </div>
 
           <form class="login-form">
+
             <div class="card-body">
+              {{!-- username field --}}
               <div class="row align-items-center pt-4 ml-5">
                 <div class="col-md-2 ps-5">
                   <h6 class="mb-0 pl-3">Username</h6>
@@ -21,20 +24,19 @@
 
               <hr class="mx-n3">
 
+              {{!-- password field --}}
               <div class="row align-items-center py-3 ml-5">
                 <div class="col-md-2 ps-5">
-
                   <h6 class="mb-0 pl-3">Password</h6>
-
                 </div>
                 <div class="col-md-8 pe-5 mr-1">
-
-                  <input type="text" class="form-control form-control-lg" id="password-login" />
-
+                  <input type="password" class="form-control form-control-lg" id="password-login" />
                 </div>
               </div>
 
               <hr class="mx-n3">
+
+              {{!-- submit fied --}}
               <div class="row container">
                 <div class="px-3 py-4 col-6">
                   <button type="submit" class="btn btn-primary btn-lg w-100 ml-3">Login</button>
@@ -46,6 +48,7 @@
                       account?</a></button>
                 </div>
               </div>
+
             </div>
           </form>
         </div>

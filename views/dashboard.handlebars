@@ -1,10 +1,12 @@
 <hr>
 
+{{!-- page title --}}
 <h1 style="font-size: 4rem; font-style: oblique; background: #f5e724" class="col-lg-7 mb-5 mt-5 container text-center">
   Dashboard</h1>
 
 <hr>
 
+{{!-- 'new post' button --}}
 <div class="container justify-content-center text-center">
   <button class="btn-lg text-white mr-2 new btn-circle show-new">
     <span class="material-symbols-outlined">
@@ -15,6 +17,7 @@
 
 <hr>
 
+{{!-- new post form -> hidden by default --}}
 <div style="display: none;" id="new-post-div">
   <div class="container col-5 card text-white bg-secondary px-0 mb-3" style="border-radius: 10px;">
     <div class="container text-center card-header bg-dark" style="border-radius: 10px 10px 0 0">
@@ -43,6 +46,7 @@
 
 </div>
 
+{{!-- loops through each post passed to handlebars from express and displays each one as a card --}}
 {{#each posts as |post|}}
 <div class="container p-0 card d-flex text-white bg-secondary mb-3 mt-2 col-lg-7"
   style="border-radius: 10px 10px 10px 10px; border: none">
@@ -55,6 +59,8 @@
           href="/posts/{{post.id}}" value="{{post.id}}" id="post-id">{{post.post_title}}</a></h5>
     </form>
     <p class="card-text">{{post.post_contents}}</p>
+
+    {{!-- buttons used to delete and edit posts -> 'Edit Post' button only makes the edit forms visible --}}
     <section style="display:inline">
       <button class="bg-danger text-white mb-2 px-3 py-1 mr-2 delete" type="submit" value="{{post.id}}"
         style="border-radius: 0; border: 1px solid #dc354677 !important">Delete
@@ -64,6 +70,7 @@
         Post</button>
     </section>
 
+    {{!-- field used to edit posts -> hidden by default --}}
     <section style="display: none" id="{{post.id}}" class="edit-post">
       <form class="comment-submit mt-3">
         <textarea rows="1" placeholder="updated post title:"
@@ -73,11 +80,12 @@
           style="font-size: 0.9rem; background-color: #f3f3f3; border: 1 px solid #ffffff"
           class="w-100 p-2 col-lg-12 new-post-content"></textarea>
         <button type="submit" class="btn text-light btn-primary btn w-25 col-12 justify-content-center submit-comment"
-          value="{{post.id}}" style="margin: auto">Submit</button>
+          value="{{post.id}}" style="margin: auto; border: 1px solid #007bff71 !important ">Submit</button>
       </form>
     </section>
-
   </div>
+
+  {{!-- card footer -> displays when the post was created/last edited --}}
   <div style="font-style: oblique; color: #ffffff; border-radius: 0 0 10px 10px"
     class="card-footer bg-dark text-center">{{format_time
     post.date_created}}</div>
@@ -85,4 +93,5 @@
 <hr>
 {{/each}}
 
+{{!-- includes editPost.js --}}
 <script src="/js/editPost.js"></script>

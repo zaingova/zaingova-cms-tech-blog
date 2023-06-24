@@ -1,12 +1,12 @@
-
+// fucntion used for posting a new comment
 const postCommentHandler = async (event) => {
   event.preventDefault();
 
+  // pulls comment contents and the associated post_id from the html
   const comment = document.getElementById('comment-field').value.trim();
   const post_id = document.getElementById('post_id').innerHTML;
-  console.log(comment);
-  console.log(post_id);
 
+  // makes a fetch request as long as the comment isnt empty
   if (comment.length > 0) {
     const response = await fetch(`/api/comments/${post_id}`, {
       method: "POST",
@@ -14,10 +14,8 @@ const postCommentHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     })
 
-
     if (response.ok) {
       location.reload();
-      //document.location.replace(`/posts/${post_id}`);
     } else {
       console.log('err!');
     }
@@ -26,4 +24,5 @@ const postCommentHandler = async (event) => {
   }
 }
 
+// adds an event listener to the button for submitting comments
 document.querySelector('.comment-submit').addEventListener('submit', postCommentHandler);
