@@ -45,8 +45,8 @@ router.delete('/delete', async (req, res) => {
       }
     })
 
+
     res.status(200).json(deletedPost);
-    res.location.replace('dashboard');
   } catch (err) {
     res.json(err);
   }
