@@ -15,6 +15,8 @@ Users have the option to make a new account, log into existing ones, and once th
 
 ## Usage
 
+[heroku app link](https://zaingova-blog-site-f64acb04e5ec.herokuapp.com/)
+
 Users can login if they already have an acccount or they can make a new one. Without logging in, they can view existing blog posts and comments but they cannot post their own. Once logged in, a timer starts and when it ends the user will automatically be logged out. They will be able to do everything they could while logged in, as well as create their own posts and comments. 
 
 Users can also edit or delete existing posts they have made.
